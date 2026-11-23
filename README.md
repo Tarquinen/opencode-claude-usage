@@ -2,6 +2,11 @@
 
 Shows your Claude subscription usage in the OpenCode Desktop session header: the 5 hour and weekly limits of every Claude Code account you are signed in to.
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/dark.png">
+  <img src="assets/light.png" width="264" alt="Usage bars in the session header, with the details card open for three accounts">
+</picture>
+
 ## Installation
 
 Requires OpenCode Desktop 2.3.0 or newer on Linux or Windows. macOS is not supported, because Claude Code keeps its login in the Keychain there.
