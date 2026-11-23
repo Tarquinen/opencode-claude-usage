@@ -12,7 +12,7 @@
     "./gui-experimental": "./dist/gui-experimental.cjs"
   },
   "scripts": {
-    "build": "vite build",
+    "bundle": "vite build",
     "dev": "vite build --watch",
     "typecheck": "tsc --noEmit"
   },
