@@ -1,0 +1,116 @@
+.claude-usage-button {
+  flex-shrink: 0;
+  padding: 0 6px;
+}
+
+.claude-usage-anchor {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.claude-usage-anchor[data-open="true"] .claude-usage-button {
+  background: var(--v2-overlay-simple-overlay-pressed);
+}
+
+/* Looks like the app's tooltip, so pinning the card does not change how it reads. */
+.claude-usage-popover {
+  position: fixed;
+  z-index: 1000;
+  padding: 5px 6px;
+  border-radius: 4px;
+  background: var(--v2-background-bg-layer-01);
+  box-shadow: var(--v2-elevation-floating);
+  color: var(--v2-text-text-base);
+  font-size: 11px;
+  font-weight: 530;
+  line-height: 12px;
+  letter-spacing: 0.05px;
+}
+
+.claude-usage-meter {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.claude-usage-account {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 16px;
+}
+
+.claude-usage-bar {
+  display: block;
+  height: 3px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: var(--v2-background-bg-layer-04);
+}
+
+.claude-usage-bar > span {
+  display: block;
+  height: 100%;
+  border-radius: 2px;
+  background: var(--v2-icon-icon-muted);
+}
+
+.claude-usage-bar[data-level="warning"] > span {
+  background: var(--v2-state-fg-warning);
+}
+
+.claude-usage-bar[data-level="danger"] > span {
+  background: var(--v2-state-fg-danger);
+}
+
+[data-stale="true"] > .claude-usage-bar,
+[data-stale="true"] > .claude-usage-row {
+  opacity: 0.5;
+}
+
+.claude-usage-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 220px;
+  padding: 4px 2px;
+  text-align: left;
+}
+
+.claude-usage-card {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.claude-usage-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--v2-text-text-base);
+}
+
+.claude-usage-row {
+  display: grid;
+  grid-template-columns: 40px 1fr 30px 22px;
+  align-items: center;
+  gap: 6px;
+  color: var(--v2-text-text-muted);
+}
+
+.claude-usage-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.claude-usage-percent,
+.claude-usage-reset {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.claude-usage-reset,
+.claude-usage-note {
+  color: var(--v2-text-text-faint);
+}

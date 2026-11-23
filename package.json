@@ -1,0 +1,30 @@
+{
+  "name": "opencode-claude-usage",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tarquinen/opencode-claude-usage"
+  },
+  "exports": {
+    "./gui-experimental": "./dist/gui-experimental.cjs"
+  },
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite build --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@opencode/plugin": "2.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "effect": "4.1.0",
+    "solid-js": "1.9.17",
+    "typescript": "^5.9.0",
+    "vite": "7.3.7",
+    "vite-plugin-solid": "2.11.10"
+  }
+}
