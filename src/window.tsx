@@ -39,23 +39,6 @@ function shownLimits(account: Account) {
   return limits
 }
 
-/** The 5 hour limit, if the account has one, and the weekly limit that is closest to running out. */
-function summary(account: Account, now: number) {
-  let hasSession = false
-  let session = 0
-  let weekly = 0
-  for (const limit of shownLimits(account)) {
-    const percent = percentNow(limit, now)
-    if (limit.kind === "session") {
-      hasSession = true
-      session = percent
-    } else if (percent > weekly) {
-      weekly = percent
-    }
-  }
-  return { hasSession, session, weekly }
-}
-
 export const setup: Plugin.Setup<typeof definition> = (ctx) => {
   ctx.add(Style, css)
   ctx.add(Slot, { at: "session.header", order: 5, render: () => <UsageButton /> })
@@ -190,14 +173,13 @@ function UsageButton() {
         <For each={accounts()}>
           {(account) => (
             <span class="claude-usage-account" data-stale={account.stale}>
-              <Show when={summary(account, now()).hasSession}>
-                <span class="claude-usage-bar" data-level={level(summary(account, now()).session)}>
-                  <span style={{ width: `${summary(account, now()).session}%` }} />
-                </span>
-              </Show>
-              <span class="claude-usage-bar" data-level={level(summary(account, now()).weekly)}>
-                <span style={{ width: `${summary(account, now()).weekly}%` }} />
-              </span>
+              <For each={shownLimits(account)}>
+                {(limit) => (
+                  <span class="claude-usage-bar" data-level={level(percentNow(limit, now()))}>
+                    <span style={{ width: `${percentNow(limit, now())}%` }} />
+                  </span>
+                )}
+              </For>
             </span>
           )}
         </For>
