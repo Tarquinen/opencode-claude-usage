@@ -1,0 +1,13 @@
+id = "claude-usage"
+name = "Claude usage"
+version = "0.1.0"
+contract = "1.0"
+description = "Shows how much of each Claude subscription limit is used, in the session header"
+entry = "init.luau"
+app = "app.luau"
+os = ["linux", "macos"]
+homepage = "https://github.com/Tarquinen/opencode-claude-usage"
+
+[[stores]]
+name = "accounts"
+scope = "global"
